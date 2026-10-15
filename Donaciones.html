@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Donaciones en vivo · Interior de Panamá</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F7FA; --surface:#FFFFFF; --ink:#0E2A47; --muted:#5A6B80; --line:#DCE3EC;
+  --blue:#1F4FA3; --blue-soft:#E6EDF8; --red:#C8102E; --red-soft:#FBE7EA; --ok:#1E7A4F; --ok-soft:#E3F3EA;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1626; --surface:#102136; --ink:#E8EEF6; --muted:#9AAABF; --line:#22374F;
+    --blue:#7FA6EC; --blue-soft:#17304F; --red:#FF6B7F; --red-soft:#3A1720; --ok:#5FCB97; --ok-soft:#123327;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1626; --surface:#102136; --ink:#E8EEF6; --muted:#9AAABF; --line:#22374F;
+  --blue:#7FA6EC; --blue-soft:#17304F; --red:#FF6B7F; --red-soft:#3A1720; --ok:#5FCB97; --ok-soft:#123327;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 20px 64px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.05;letter-spacing:-0.01em}
+a{color:var(--blue)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+
+/* hero */
+.flag{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-bottom:22px;max-width:120px}
+.flag i{flex:1}.flag i:nth-child(1){background:var(--blue)}.flag i:nth-child(2){background:var(--line)}.flag i:nth-child(3){background:var(--red)}
+.hero h1{font-size:clamp(34px,6vw,58px);font-weight:800;max-width:16ch}
+.hero p.lead{margin:14px 0 0;color:var(--muted);max-width:60ch;font-size:17px}
+.amb{margin-top:10px;font-size:15px;color:var(--muted)}
+.amb strong{color:var(--ink);font-weight:600}
+.live{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:14px;color:var(--muted)}
+.live b{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--red) 55%,transparent)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@media (prefers-reduced-motion: reduce){.live b{animation:none}.row.fresh{animation:none!important}}
+
+/* ledger summary: entra / sale / queda */
+.money{margin-top:30px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px}
+.total-label{font-size:15px;color:var(--muted)}
+.total{font-family:var(--display);font-weight:800;font-size:clamp(48px,11vw,104px);line-height:1;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;margin-top:4px}
+.goal{margin-top:18px}
+.bar{height:12px;background:var(--blue-soft);border-radius:6px;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--blue);border-radius:6px;transition:width .8s ease}
+.goal-meta{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-top:8px;gap:12px;flex-wrap:wrap}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);margin-top:24px;border-top:1px solid var(--line)}
+.flow div{padding:16px 16px 2px 0}
+.flow div+div{padding-left:16px;border-left:1px solid var(--line)}
+.flow small{display:block;font-size:14px;color:var(--muted)}
+.flow strong{font-family:var(--display);font-size:clamp(20px,3.4vw,28px);font-weight:700;font-variant-numeric:tabular-nums}
+.flow .out strong{color:var(--red)}
+.flow .left strong{color:var(--ok)}
+@media (max-width:560px){.flow{grid-template-columns:1fr}.flow div+div{border-left:0;padding-left:0;border-top:1px solid var(--line)}}
+
+/* how to donate */
+.donate{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media (max-width:720px){.donate{grid-template-columns:1fr}}
+.method{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.method h2{font-size:22px;font-weight:700}
+.method dl{margin:12px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px}
+.method dt{color:var(--muted)}
+.method dd{margin:0;font-weight:600;display:flex;gap:8px;align-items:center;flex-wrap:wrap;word-break:break-word}
+.copy{border:1px solid var(--line);background:transparent;border-radius:8px;padding:2px 8px;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted)}
+.copy:hover{color:var(--ink);border-color:var(--muted)}
+.method p{margin:12px 0 0;font-size:14px;color:var(--muted)}
+
+/* sections */
+section.block{margin-top:44px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.head h2{font-size:clamp(24px,4vw,32px);font-weight:700}
+.head p{margin:6px 0 0;color:var(--muted);font-size:15px;max-width:56ch}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools input{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 12px;min-width:220px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:9px 12px;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+
+.table{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+th{text-align:left;font-weight:500;color:var(--muted);font-size:13px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--bg)}
+td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+td.amt,th.amt{text-align:right;font-variant-numeric:tabular-nums}
+td.amt{font-weight:600}
+td.code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:14px;letter-spacing:.02em}
+td.when{color:var(--muted);white-space:nowrap;font-size:14px}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:2px 9px}
+.tag.yappy{background:var(--blue-soft);color:var(--blue)}
+.tag.ach{background:var(--ok-soft);color:var(--ok)}
+.row.void td{text-decoration:line-through;color:var(--muted)}
+.row.void td.note{text-decoration:none}
+.row.fresh{animation:fresh 2.4s ease-out}
+@keyframes fresh{from{background:var(--blue-soft)}to{background:transparent}}
+.void-note{display:block;font-size:12px;text-decoration:none;color:var(--red)}
+.empty{padding:36px 20px;text-align:center;color:var(--muted)}
+.flow .soon-txt{color:var(--muted)}
+.soon{border:1.5px dashed var(--line);border-radius:14px;padding:28px 22px;text-align:center;background:var(--surface)}
+.soon h2{font-size:clamp(24px,4vw,32px);font-weight:700;margin-top:10px}
+.soon p{margin:8px auto 0;color:var(--muted);max-width:46ch}
+.soon-tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--red);background:var(--red-soft);border-radius:999px;padding:4px 12px}
+.closing{margin-top:44px;text-align:center;padding:32px 20px;border-radius:18px;background:var(--ink);color:var(--surface)}
+.closing p{margin:0;font-size:16px;opacity:.85}
+.closing p.closing-date{font-family:var(--display);font-size:clamp(22px,4vw,30px);line-height:1.2;opacity:1;margin-bottom:12px}
+.closing a{color:inherit;font-weight:600;text-underline-offset:3px}
+.more{display:block;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:12px;cursor:pointer;color:var(--blue);font-weight:600}
+.admin-cell{width:1%;white-space:nowrap}
+.linkbtn{border:0;background:transparent;color:var(--red);cursor:pointer;font-size:13px;padding:0;text-decoration:underline}
+
+/* admin */
+.admin{margin-top:48px;border:2px dashed var(--blue);border-radius:18px;padding:22px;background:var(--surface)}
+.admin h2{font-size:24px;font-weight:700}
+.admin > p{color:var(--muted);margin:6px 0 0;font-size:15px}
+.forms{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+@media (max-width:760px){.forms{grid-template-columns:1fr}}
+form{border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px;align-content:start}
+form h3{font-size:18px;font-weight:700}
+label{display:grid;gap:4px;font-size:14px;color:var(--muted)}
+label input,label select{border:1px solid var(--line);background:var(--bg);border-radius:9px;padding:9px 11px;color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.primary{border:0;background:var(--blue);color:#fff;border-radius:10px;padding:11px 14px;font-weight:600;cursor:pointer}
+:root[data-theme="dark"] .primary{color:#0A1626}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .primary{color:#0A1626}}
+.primary:disabled{opacity:.55;cursor:progress}
+.msg{font-size:14px;min-height:1.2em;margin:0}
+.msg.err{color:var(--red)}.msg.ok{color:var(--ok)}
+details.cfg{margin-top:18px;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+details.cfg summary{cursor:pointer;font-weight:600}
+details.cfg form{border:0;padding:12px 0 0}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer button{border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:7px 12px;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--surface);padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="flag" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h1 id="title"></h1>
+    <p class="lead" id="lead"></p>
+    <p class="amb" id="amb"></p>
+    <div class="live"><b aria-hidden="true"></b><span id="updated">Registro público en vivo</span></div>
+  </header>
+
+  <div class="money" aria-live="polite">
+    <div class="total-label">Total recaudado</div>
+    <div class="total" id="total">$0.00</div>
+    <div class="goal" id="goalWrap">
+      <div class="bar" role="progressbar" aria-label="Avance hacia la meta" id="bar"><span id="barFill" style="width:0"></span></div>
+      <div class="goal-meta"><span id="goalPct"></span><span id="goalTxt"></span></div>
+    </div>
+    <div class="flow">
+      <div><small>Donaciones recibidas</small><strong id="count">0</strong></div>
+      <div class="left"><small>Entrega de donaciones</small><strong>Domingo 18 de octubre</strong></div>
+      <div><small>Registro de gastos</small><strong class="soon-txt">Próximamente</strong></div>
+    </div>
+  </div>
+
+  <section class="block" aria-labelledby="howTitle">
+    <div class="head"><div><h2 id="howTitle">Cómo donar</h2><p>Después de donar, busca tu monto en el registro de abajo. Aparece solo, en uno o dos minutos, con la hora en que llegó.</p></div></div>
+    <div class="donate">
+      <div class="method"><h2>Yappy</h2><dl id="yappyDl"></dl><p>Escribe "Donación" en el comentario del Yappy.</p></div>
+      <div class="method"><h2>Transferencia bancaria</h2><dl id="achDl"></dl><p>Usa "Donación" como descripción de la transferencia.</p></div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="ledgerTitle">
+    <div class="head">
+      <div><h2 id="ledgerTitle">Donaciones recibidas</h2><p>Sin nombres ni números de cuenta. Solo la hora, el método, un código de registro y el monto.</p></div>
+      <div class="tools">
+        <input type="search" id="q" placeholder="Busca por monto o código" aria-label="Buscar por monto o código">
+        <div class="seg" role="group" aria-label="Filtrar por método">
+          <button type="button" data-f="all" aria-pressed="true">Todas</button>
+          <button type="button" data-f="yappy" aria-pressed="false">Yappy</button>
+          <button type="button" data-f="ach" aria-pressed="false">Transferencia</button>
+        </div>
+      </div>
+    </div>
+    <div class="table"><div class="scroll"><table>
+      <thead><tr><th>Fecha y hora</th><th>Método</th><th>Código</th><th class="amt">Monto</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div><div id="emptyD" class="empty" hidden></div><button type="button" class="more" id="more" hidden>Ver más donaciones</button></div>
+  </section>
+
+  <section class="block" aria-labelledby="outTitle">
+    <div class="soon">
+      <span class="soon-tag">Próximamente</span>
+      <h2 id="outTitle">Registro de gastos</h2>
+      <p>Aquí vas a poder ver en qué se usó cada dólar: compras, comunidades atendidas y comprobantes.</p>
+    </div>
+  </section>
+
+  <section class="closing" aria-label="Entrega de donaciones">
+    <p class="closing-date">Las donaciones serán entregadas el <strong>domingo 18 de octubre</strong>.</p>
+    <p>Más información en las historias de <a href="https://www.instagram.com/gabilineth/" target="_blank" rel="noopener">@gabilineth</a></p>
+  </section>
+
+    <footer>
+    <span id="foot"></span>
+    <button type="button" id="csv">Descargar registro completo (CSV)</button>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+// ====== Pega aquí la URL de tu Web App de Apps Script ======
+const API_URL = 'https://script.google.com/macros/s/AKfycbyKC_b1W5CyGxqD1_1KPSDzRatuSUQsW5VRh2sCANZ1Zr8CVsAZ4xauW8kFt28GQWav/exec';
+const CADA_SEGUNDOS = 30;
+// ===========================================================
+(function(){
+  const $ = id => document.getElementById(id);
+  const TZ='America/Panama';
+  const fmt=n=>'$'+Number(n||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const dt=iso=>new Date(iso).toLocaleString('es-PA',{timeZone:TZ,day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+  const d1=s=>new Date(s+'T12:00:00').toLocaleDateString('es-PA',{day:'2-digit',month:'short',year:'numeric'});
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const toast=t=>{const e=$('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),2200)};
+  let S={config:{title:'Cargando…',lead:'',ambassador:'',goal:0},donations:[],deliveries:[],updatedAt:null};
+  let filter='all',q='',shown=50,seen=null,loaded=false;
+
+  function render(){
+    const c=S.config, act=S.donations.filter(d=>!d.void);
+    const inn=act.reduce((a,d)=>a+d.amount,0), out=S.deliveries.filter(d=>!d.void).reduce((a,d)=>a+d.amount,0);
+    $('title').textContent=c.title||''; if(c.title)document.title=c.title+' · Donaciones en vivo';
+    $('lead').textContent=c.lead||'';
+    $('amb').innerHTML=c.ambassador?'Rostro de la campaña: <strong>'+esc(c.ambassador)+'</strong>':'';
+    const row=(k,v)=>'<dt>'+k+'</dt><dd><span>'+esc(v||'Por confirmar')+'</span>'+(v?'<button type="button" class="copy" data-copy="'+esc(v)+'">Copiar</button>':'')+'</dd>';
+    $('yappyDl').innerHTML=row('Directorio',c.yappyName)+row('Número',c.yappyId);
+    $('achDl').innerHTML=row('Banco',c.bank)+row('Tipo',c.accType)+row('Titular',c.holder)+row('Cuenta',c.accNum);
+    $('total').textContent=fmt(inn);$('count').textContent=act.length.toLocaleString('es-PA');
+    const g=Number(c.goal)||0;$('goalWrap').hidden=!g;
+    if(g){const p=Math.min(100,inn/g*100);$('barFill').style.width=p+'%';$('bar').setAttribute('aria-valuenow',Math.round(p));
+      $('goalPct').textContent=(p<1&&p>0?p.toFixed(1):Math.round(p))+'% de la meta';$('goalTxt').textContent='Meta: '+fmt(g);}
+    $('updated').textContent=loaded?'En vivo · se actualiza cada '+CADA_SEGUNDOS+' segundos':'Conectando…';
+    $('foot').textContent=S.donations.length+' registros publicados. Las correcciones se marcan como anuladas, no se borran.';
+    let list=[...S.donations].sort((a,b)=>b.at.localeCompare(a.at));
+    if(filter!=='all')list=list.filter(d=>d.method===filter);
+    if(q){const qn=q.replace(/[$,\s]/g,'');list=list.filter(d=>d.code.toLowerCase().includes(q)||(qn&&/^[0-9.]+$/.test(qn)&&(d.amount.toFixed(2).startsWith(qn)||String(d.amount)===qn)));}
+    $('rows').innerHTML=list.slice(0,shown).map(d=>'<tr class="row'+(d.void?' void':'')+(seen&&!seen.has(d.id)&&!d.void?' fresh':'')+'"><td class="when">'+dt(d.at)+'</td><td><span class="tag '+d.method+'">'+(d.method==='yappy'?'Yappy':'Transferencia')+'</span></td><td class="code">'+esc(d.code)+(d.void?'<span class="void-note">Anulada: '+esc(d.voidReason)+'</span>':'')+'</td><td class="amt">'+fmt(d.amount)+'</td></tr>').join('');
+    const e=$('emptyD');e.hidden=list.length>0;
+    e.textContent=!loaded?'Cargando registro…':S.donations.length===0?'Aún no hay donaciones registradas. La primera aparecerá aquí en cuanto llegue.':(q?'No encontramos "'+q+'". Si donaste hace poco, espera un par de minutos.':'No hay donaciones con este filtro.');
+    $('more').hidden=list.length<=shown;
+  }
+
+  async function load(){
+    try{
+      const r=await fetch(API_URL+(API_URL.includes('?')?'&':'?')+'t='+Date.now());
+      if(!r.ok)throw 0;
+      const next=await r.json();
+      const prevIds=loaded?new Set(S.donations.map(d=>d.id)):null;
+      if(loaded&&next.donations.length>S.donations.length)toast('Nueva donación recibida');
+      S=next;seen=prevIds;loaded=true;render();
+    }catch(_){ if(loaded)$('updated').textContent='Sin conexión. Reintentando…'; }
+  }
+
+  document.addEventListener('click',e=>{const c=e.target.closest('[data-copy]');if(c)navigator.clipboard?.writeText(c.dataset.copy).then(()=>toast('Copiado'),()=>toast('No se pudo copiar'));});
+  $('q').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();shown=50;render();});
+  document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.f;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));shown=50;render();}));
+  $('more').addEventListener('click',()=>{shown+=50;render();});
+  $('csv').addEventListener('click',()=>{
+    const L=[['tipo','fecha','metodo_o_comunidad','codigo_o_detalle','monto','estado']];
+    S.donations.forEach(d=>L.push(['donacion',d.at,d.method,d.code,d.amount.toFixed(2),d.void?'anulada: '+d.voidReason:'valida']));
+    S.deliveries.forEach(d=>L.push(['entrega',d.date,d.place,d.what,d.amount.toFixed(2),d.void?'anulada: '+d.voidReason:'valida']));
+    const blob=new Blob(['\ufeff'+L.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n')],{type:'text/csv'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='registro-donaciones.csv';a.click();
+  });
+  render();load();setInterval(load,CADA_SEGUNDOS*1000);
+})();
+</script>
+</body>
+</html>
