@@ -389,6 +389,57 @@ dialog.buy::backdrop{background:rgba(20,18,14,.55);backdrop-filter:blur(3px)}
 @media (max-width:600px){.stk > img{height:150px}}
 .way .art > img{height:170px!important;width:auto;max-width:90%;object-fit:contain}
 
+/* ===== logo heritage ===== */
+:root{--lk-red:#A8232B;--lk-navy:#15284A;--lk-gold:#B98A3E}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--lk-red:#C9A35A;--lk-navy:#EFE3C8;--lk-gold:#C9A35A}}
+:root[data-theme="dark"]{--lk-red:#C9A35A;--lk-navy:#EFE3C8;--lk-gold:#C9A35A}
+.kRed{fill:var(--lk-red)} .kNavy{fill:var(--lk-navy)} .kGold{fill:var(--lk-gold)} .kGoldS{stroke:var(--lk-gold)} .kNavyS{stroke:var(--lk-navy)}
+.kOut{fill:#15284A} .kBand{fill:#A8232B} .kInner{fill:#F4E9D2} .kRing{fill:#F4E9D2} .kRay{fill:#EADBB9}
+.kScript{fill:#15284A} .kRib{fill:#A8232B} .kRibD{fill:#7E1A20} .kRibF{fill:#5E1318} .kRibT{fill:#F4E9D2}
+.kFw{fill:#FFFFFF} .kFr{fill:#DA121A} .kFb{fill:#072357}
+[class^="emb"] .kGold,[class^="emb"] .kNavy,[class^="emb"] .kRed{fill:revert-layer}
+svg[class^="emb"] .kGold{fill:#B98A3E} svg[class^="emb"] .kGoldS{stroke:#B98A3E} svg[class^="emb"] .kNavy{fill:#15284A} svg[class^="emb"] .kNavyS{stroke:#15284A} svg[class^="emb"] .kRed{fill:#A8232B}
+.brand svg.logo-mini{height:34px;width:auto}
+.hero2 .biglogo{width:min(100%,700px)}
+.way .art.give{background:var(--blue)}
+.way .art.give > svg{height:88%;width:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.25))}
+.closing .bg-emb{position:absolute;right:-70px;top:-70px;width:300px;height:300px;opacity:.16;animation:spin 60s linear infinite}
+.closing .bg-emb svg{width:100%;height:100%}
+
+/* ===== logo minimal ===== */
+.mkI{fill:var(--ink)} .mkR{fill:#D21E2B}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .mkR{fill:#FF4D4D}}
+:root[data-theme="dark"] .mkR{fill:#FF4D4D}
+.brand svg.logo-mini{height:40px;width:auto}
+.hero2 .biglogo{width:min(100%,620px);height:auto}
+.way .art.give > svg.mono{height:62%;width:auto;filter:none}
+.way .art.give .mkI{fill:#F7F1E4} .way .art.give .mkR{fill:#FF5A4D}
+.closing .bg-emb{opacity:.12;animation:none;width:320px;height:320px;right:-20px;top:-30px}
+.closing .bg-emb .mkI{fill:#FFFFFF} .closing .bg-emb .mkR{fill:#FF8A7A}
+
+/* ===== logo pop ===== */
+.pTop{fill:#1F4FB8} .pSh{fill:#141414;stroke:#141414} .pOut{fill:#FFF7EA;stroke:#FFF7EA} .pRed{fill:#D21E2B} .pInk{fill:#141414}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pTop{fill:#8FB4FF}:root:not([data-theme="light"]) .pSh{fill:#FFF7EA;stroke:#FFF7EA}:root:not([data-theme="light"]) .pInk{fill:#FFF7EA}}
+:root[data-theme="dark"] .pTop{fill:#8FB4FF} :root[data-theme="dark"] .pSh{fill:#FFF7EA;stroke:#FFF7EA} :root[data-theme="dark"] .pInk{fill:#FFF7EA}
+.way .art.give .pSh{fill:#0B1630;stroke:#0B1630} .way .art.give .pInk{fill:#0B1630}
+.closing .bg-emb{opacity:.16} .closing .bg-emb .pSh{fill:#0B1630;stroke:#0B1630}
+.tw{transform-box:fill-box;transform-origin:center;animation:tw 2.6s ease-in-out infinite}
+.tw:nth-of-type(4n+3),.tw:nth-of-type(4n+4){animation-delay:-1.3s}
+@keyframes tw{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.25) rotate(18deg)}}
+.hero2 .biglogo{animation:popin .7s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes popin{from{transform:scale(.86) rotate(-2deg);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion: reduce){.tw,.hero2 .biglogo{animation:none}}
+.brand svg.logo-mini{height:42px}
+
+.optin{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:14px;color:var(--muted);cursor:pointer}
+.optin input{margin-top:3px;accent-color:var(--red)}
+.form-err{margin:14px 0 0;padding:10px 14px;border-radius:12px;background:rgba(210,69,43,.12);color:var(--red);font-size:14px}
+.design-pick label.off span,.sz label.off span{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+
+/* logo original restaurado */
+.brand svg.logo-mini{height:28px;width:auto}
+.hero2 .biglogo{width:min(100%,640px);animation:none}
+
 </style>
 </head>
 <body>
@@ -593,7 +644,7 @@ dialog.buy::backdrop{background:rgba(20,18,14,.55);backdrop-filter:blur(3px)}
     <section class="thanks">
       <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#F7F1E4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
       <h1 class="page-title" style="margin-top:0">¡Gracias!</h1>
-      <p>Recibimos tu pedido y tu comprobante. Te escribiremos al teléfono que dejaste para coordinar el retiro.</p>
+      <p>Recibimos tu pedido <b id="thanksId"></b> y tu comprobante. Apenas confirmemos el pago te escribimos por WhatsApp con la hora y el lugar de retiro.</p>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px"><a class="pill" href="#inicio">Volver al inicio <span class="arr">↗</span></a><a class="pill light" href="#tienda">Seguir comprando <span class="arr">↗</span></a></div>
     </section>
   </main>
@@ -607,20 +658,17 @@ dialog.buy::backdrop{background:rgba(20,18,14,.55);backdrop-filter:blur(3px)}
 <!-- ================= MODAL DE COMPRA ================= -->
 <dialog class="buy" id="buy" aria-labelledby="buyTitle">
   <div class="buy-in">
-    <form id="buyForm" method="POST" enctype="multipart/form-data">
+    <form id="buyForm" novalidate>
       <div class="buy-top"><h3 id="buyTitle">Tu pedido</h3><button type="button" class="x" id="buyClose" aria-label="Cerrar">✕</button></div>
-      <input type="hidden" name="_subject" id="fSubject" value="Nuevo pedido · Todos somos Panamá">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" id="fNext" value="">
-      <input type="hidden" name="total" id="fTotal">
-      <input type="hidden" name="a_las_familias" id="fCausa">
 
       <div class="fs"><span class="t">Producto</span>
         <div class="seg2">
           <label><input type="radio" name="producto" value="Sticker" checked><span>Sticker <b>$5</b></span></label>
           <label><input type="radio" name="producto" value="Suéter"><span>Suéter <b>$20</b></span></label>
         </div>
+      </div>
+      <div class="fs"><span class="t">Punto de retiro</span>
+        <select class="inp" name="punto" id="fPoint" required><option value="">Escoge dónde retirar *</option></select>
       </div>
       <div class="fs" id="fsDesign"><span class="t">Diseño</span>
         <div class="design-pick" id="designPick"></div>
@@ -645,15 +693,18 @@ dialog.buy::backdrop{background:rgba(20,18,14,.55);backdrop-filter:blur(3px)}
           <input class="inp" name="telefono" required type="tel" autocomplete="tel" inputmode="tel" placeholder="Teléfono / WhatsApp *">
         </div>
         <div class="two" style="margin-top:10px">
-          <select class="inp" name="punto_de_retiro" id="fPoint" required><option value="">Punto de retiro *</option></select>
-          <select class="inp" name="metodo_de_pago" required><option value="">¿Cómo pagaste? *</option><option>Yappy</option><option>Transferencia</option></select>
+          <input class="inp" name="titular" autocomplete="off" placeholder="Titular de la cuenta con que pagaste">
+          <select class="inp" name="metodo" required><option value="">¿Cómo pagaste? *</option><option>Yappy</option><option>Transferencia</option></select>
         </div>
       </div>
       <div class="fs"><span class="t">3. Comprobante de pago <span class="req">*</span></span>
         <label class="file"><span aria-hidden="true">📎</span><input type="file" name="attachment" accept="image/*,application/pdf" required></label>
       </div>
+      <label class="optin"><input type="checkbox" name="whatsapp" checked> Acepto que me escriban por WhatsApp sobre mi pedido.</label>
+      <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <p class="form-err" id="buyErr" role="alert" hidden></p>
       <button type="submit" class="pill submit">Enviar pedido <span class="arr">↗</span></button>
-      <p class="fine-print">Tu pedido llega al equipo por correo. Tus datos no se publican en la página.</p>
+      <p class="fine-print">El titular nos ayuda a encontrar tu pago más rápido (si pagó otra persona, pon su nombre). Tus datos no se publican en la página.</p>
     </form>
   </div>
 </dialog>
@@ -836,7 +887,6 @@ const IMG={"raspao": {"stk": "data:image/webp;base64,UklGRqCCAABXRUJQVlA4WAoAAAA
 // ================== AJUSTES ==================
 const API_URL = 'https://script.google.com/macros/s/AKfycbyKC_b1W5CyGxqD1_1KPSDzRatuSUQsW5VRh2sCANZ1Zr8CVsAZ4xauW8kFt28GQWav/exec';
 const CADA_SEGUNDOS = 30;
-const FORM_EMAIL = 'sthefanborace09@gmail.com';            // FormSubmit envía los pedidos aquí
 const PRECIO = { sticker: 5, sueter: 20 };
 const COSTO  = { sticker: 0.10, sueter: 5 };
 const TALLAS = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
@@ -884,7 +934,10 @@ const PUNTOS = [                                             // ← editar con l
   $('shirtPick').addEventListener('click',e=>{const b=e.target.closest('button');if(b){shirtK=b.dataset.k;paintShirt();}});
   paintShirt();
   $('sizeList').innerHTML=TALLAS.map(t=>`<span>${t}</span>`).join('');
-  $('pointList').innerHTML=PUNTOS.map(p=>`<div><b>${esc(p.n)}</b><small>${esc(p.d)}</small></div>`).join('');
+  let puntosVivos=PUNTOS;
+  const pintarPuntos=()=>{$('pointList').innerHTML=puntosVivos.map(p=>`<div><b>${esc(p.n)}</b><small>${esc(p.d)}${p.h?' · '+esc(p.h):''}</small></div>`).join('');
+    const sel=$('fPoint'),cur=sel.value;sel.innerHTML='<option value="">Escoge dónde retirar *</option>'+puntosVivos.map(p=>`<option>${esc(p.n)}</option>`).join('');sel.value=cur;};
+  pintarPuntos();
 
   // ---------- vistas ----------
   const views=[...document.querySelectorAll('.view')];
@@ -952,6 +1005,8 @@ const PUNTOS = [                                             // ← editar con l
       const prev=loaded?new Set(S.donations.map(d=>d.id)):null;
       if(loaded&&next.donations.length>S.donations.length)toast('Nuevo aporte recibido');
       S=next;seen=prev;loaded=true;render();
+      if(Array.isArray(S.puntos)&&S.puntos.length){puntosVivos=S.puntos;pintarPuntos();}
+      if(dlg.open)upd();
     }catch(_){if(loaded)$('updated').textContent='Reintentando…';}
   }
   document.addEventListener('click',e=>{const c=e.target.closest('[data-copy]');if(c)navigator.clipboard?.writeText(c.dataset.copy).then(()=>toast('Copiado'),()=>toast('No se pudo copiar'));});
@@ -960,11 +1015,11 @@ const PUNTOS = [                                             // ← editar con l
 
   // ---------- compra ----------
   const dlg=$('buy'), form=$('buyForm');
-  form.action='https://formsubmit.co/'+FORM_EMAIL;
   $('designPick').innerHTML=DISENOS.map((d,i)=>`<label title="${esc(d.n)}"><input type="radio" name="diseno" value="${esc(d.n)}" data-k="${d.k}" ${i?'':'checked'}><span><img src="${IMG[d.k].stk}" alt="${esc(d.n)}"></span></label>`).join('');
   $('sizePick').innerHTML=TALLAS.map((t,i)=>`<label><input type="radio" name="talla" value="${t}" ${t==='M'?'checked':''}><span>${t}</span></label>`).join('');
-  $('fPoint').insertAdjacentHTML('beforeend',PUNTOS.map(p=>`<option>${esc(p.n)}</option>`).join(''));
   const prod=()=>form.producto.value==='Suéter'?'sueter':'sticker';
+  const sKey=(pr,d,t,pu)=>[pr,d,t||'-',pu].map(x=>String(x).trim().toLowerCase()).join('|');
+  const dispo=(pr,d,t,pu)=>{const st=S.stock||{};const k=sKey(pr,d,t,pu);return k in st?st[k]:null;};
   function upd(){
     const k=prod(), qty=Math.max(1,Math.min(50,parseInt($('fQty').value)||1)); $('fQty').value=qty;
     $('fsSize').hidden=k!=='sueter';
@@ -972,9 +1027,16 @@ const PUNTOS = [                                             // ← editar con l
     form.querySelectorAll('input[name="talla"]').forEach(i=>i.disabled=k!=='sueter');
     const tot=qty*PRECIO[k], cau=qty*(PRECIO[k]-COSTO[k]);
     $('sumTotal').textContent=fmt(tot); $('sumCausa').textContent=fmt(cau);
-    $('fTotal').value=fmt(tot); $('fCausa').value=fmt(cau);
-    const dn=form.querySelector('input[name="diseno"]:checked'); $('dname').textContent=dn?'Diseño: '+dn.value+(k==='sueter'?' (pequeño en el pecho)':''):'';
-    $('fSubject').value=`Pedido: ${qty} ${k==='sticker'?'sticker'+(qty>1?'s':''):'suéter'+(qty>1?'es':'')} ${dn?dn.value:''} · ${fmt(tot)} · Todos somos Panamá`;
+    const pu=$('fPoint').value;
+    form.querySelectorAll('input[name="diseno"]').forEach(r=>{const tallas=k==='sueter'?TALLAS:['-'];const sinStock=pu&&tallas.every(t=>dispo(k,r.value,t,pu)===0);r.disabled=!!sinStock;r.parentElement.classList.toggle('off',!!sinStock);});
+    {const c=form.querySelector('input[name="diseno"]:checked');if(c&&c.disabled){const f=[...form.querySelectorAll('input[name="diseno"]')].find(r=>!r.disabled);if(f)f.checked=true;}}
+    const dsel=form.querySelector('input[name="diseno"]:checked');
+    form.querySelectorAll('input[name="talla"]').forEach(r=>{const z=k==='sueter'&&pu&&dsel&&dispo(k,dsel.value,r.value,pu)===0;r.disabled=k!=='sueter'||!!z;r.parentElement.classList.toggle('off',!!z);});
+    if(k==='sueter'){const c=form.querySelector('input[name="talla"]:checked');if(c&&c.disabled){const f=[...form.querySelectorAll('input[name="talla"]')].find(r=>!r.disabled);if(f)f.checked=true;}}
+    const tsel=form.querySelector('input[name="talla"]:checked');
+    const dv=pu&&dsel?dispo(k,dsel.value,k==='sueter'?(tsel&&!tsel.disabled?tsel.value:''):'-',pu):null;
+    const dn=dsel; $('dname').textContent=(dn?'Diseño: '+dn.value+(k==='sueter'?' (pequeño en el pecho)':''):'')+(dv===null?'':dv===0?' · Agotado en '+pu:' · Quedan '+dv+' en '+pu);
+    if(dv!==null&&dv>0&&qty>dv){$('fQty').value=dv;}
   }
   form.addEventListener('change',upd);
   $('fQty').addEventListener('input',upd);
@@ -988,11 +1050,35 @@ const PUNTOS = [                                             // ← editar con l
   document.addEventListener('click',e=>{const b=e.target.closest('[data-buy]');if(b)openBuy(b.dataset.buy,b.dataset.design);});
   $('buyClose').addEventListener('click',()=>dlg.close());
   dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close();});
-  form.addEventListener('submit',e=>{
-    const f=form.attachment.files[0];
-    if(f&&f.size>5*1024*1024){e.preventDefault();toast('El comprobante pesa más de 5 MB. Sube una captura más liviana.');return;}
-    $('fNext').value=location.href.split('#')[0]+'#gracias';
-    const btn=form.querySelector('.submit');btn.firstChild.textContent='Enviando… ';btn.disabled=true;
+  const err=t=>{const e=$('buyErr');e.textContent=t;e.hidden=!t;if(t)e.scrollIntoView({block:'nearest',behavior:'smooth'});};
+  form.addEventListener('input',()=>err(''));
+  const leerArchivo=f=>new Promise((ok,ko)=>{
+    if(/pdf/i.test(f.type)){if(f.size>5*1024*1024)return ko('El PDF pesa más de 5 MB.');const r=new FileReader();r.onload=()=>ok({data:r.result,tipo:'application/pdf'});r.onerror=()=>ko('No pudimos leer el archivo.');r.readAsDataURL(f);return;}
+    const img=new Image(),url=URL.createObjectURL(f);
+    img.onload=()=>{const m=1600,s=Math.min(1,m/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(url);ok({data:c.toDataURL('image/jpeg',.82),tipo:'image/jpeg'});};
+    img.onerror=()=>ko('Ese archivo no parece una imagen. Sube una captura o un PDF.');img.src=url;});
+  form.addEventListener('submit',async e=>{
+    e.preventDefault(); upd();
+    const k=prod(), d=form.querySelector('input[name="diseno"]:checked'), t=form.querySelector('input[name="talla"]:checked');
+    const f=form.attachment.files[0], tel=form.telefono.value.replace(/\D/g,'');
+    if(!$('fPoint').value)return err('Escoge el punto de retiro.');
+    if(!d||d.disabled)return err('Ese diseño está agotado en '+$('fPoint').value+'. Escoge otro diseño o punto.');
+    if(k==='sueter'&&(!t||t.disabled))return err('Escoge una talla disponible.');
+    if(!form.nombre.value.trim())return err('Escribe tu nombre.');
+    if(tel.length<7)return err('Revisa tu número de teléfono.');
+    if(!form.metodo.value)return err('Cuéntanos si pagaste por Yappy o transferencia.');
+    if(!f)return err('Adjunta el comprobante de pago.');
+    const btn=form.querySelector('.submit'),lbl=btn.firstChild;lbl.textContent='Enviando… ';btn.disabled=true;
+    try{
+      const archivo=await leerArchivo(f);
+      const body={producto:k,diseno:d.value,talla:k==='sueter'?t.value:'-',cantidad:Number($('fQty').value),punto:$('fPoint').value,
+        nombre:form.nombre.value.trim(),telefono:form.telefono.value.trim(),titular:form.titular.value.trim(),metodo:form.metodo.value,whatsapp:form.whatsapp.checked,web:form.web.value,archivo};
+      const r=await fetch(API_URL,{method:'POST',body:JSON.stringify(body)}); const j=await r.json();
+      if(!j.ok){const m={agotado:'Se acaba de agotar'+(j.disponible?' (quedan '+j.disponible+')':'')+'. Ajusta tu pedido.',limite:'Ya tienes varios pedidos pendientes. Espera a que los confirmemos.',comprobante:'Adjunta el comprobante de pago.',archivo:'El comprobante pesa demasiado.',datos:'Revisa los datos del pedido.'};
+        err(m[j.error]||'No pudimos enviar el pedido. Intenta de nuevo.'); if(j.error==='agotado')load(); return;}
+      form.reset(); upd(); dlg.close(); $('thanksId').textContent=j.id; location.hash='#gracias'; load();
+    }catch(x){err(typeof x==='string'?x:'No pudimos enviar el pedido. Revisa tu conexión e intenta de nuevo.');}
+    finally{lbl.textContent='Enviar pedido ';btn.disabled=false;}
   });
 
   render();load();setInterval(load,CADA_SEGUNDOS*1000);
