@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Todos somos Panamá · Donaciones en vivo</title>
-<meta name="description" content="Recaudamos fondos para las familias afectadas del interior de Panamá. Cada dólar se publica en vivo.">
+<meta name="description" content="Arte panameño por todo Panamá. Lo recaudado va a la Fundación TECHO Panamá. Cada dólar se publica en vivo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
@@ -440,6 +440,20 @@ svg[class^="emb"] .kGold{fill:#B98A3E} svg[class^="emb"] .kGoldS{stroke:#B98A3E}
 .brand svg.logo-mini{height:28px;width:auto}
 .hero2 .biglogo{width:min(100%,640px);animation:none}
 
+/* artistas */
+.artist{display:grid;grid-template-columns:1fr 1.2fr;gap:10px;align-items:stretch}
+@media (max-width:820px){.artist{grid-template-columns:1fr}}
+.artist-info{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.artist-info .badge{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:var(--bg);border-radius:999px;padding:5px 12px}
+.artist-info h3{font-size:clamp(30px,4vw,42px);letter-spacing:-.03em}
+.artist-ig{font-weight:600;color:var(--red);text-decoration:none}
+.artist-info p{margin:0;color:var(--muted);font-size:15px;max-width:40ch}
+.artist-info .pill{margin-top:auto}
+.artist-art{background:var(--tile);border-radius:var(--r);display:flex;align-items:center;justify-content:center;gap:2%;padding:28px 18px;min-height:260px}
+.artist-art img{width:31%;height:auto;max-height:240px;object-fit:contain;transform:rotate(var(--r));filter:drop-shadow(0 10px 14px rgba(28,26,23,.16));transition:transform .3s}
+.artist-art img:hover{transform:rotate(0) scale(1.05)}
+.fine a{color:inherit;font-weight:600}
+
 </style>
 </head>
 <body>
@@ -470,7 +484,7 @@ svg[class^="emb"] .kGold{fill:#B98A3E} svg[class^="emb"] .kGoldS{stroke:#B98A3E}
     <header class="hero2">
       <h1 style="margin:0"><span class="sr" style="position:absolute;left:-9999px">Todos somos Panamá</span><span id="heroLogo"></span></h1>
       <div class="hero-side">
-        <p>Ayuda a las familias afectadas por los desastres naturales del viernes 9 de octubre. Cada dólar se publica aquí, en vivo.</p>
+        <p>Arte panameño por todo Panamá. Lo recaudado va a la Fundación TECHO Panamá para apoyar a las familias del interior afectadas por los desastres del 9 de octubre. Cada dólar se publica aquí, en vivo.</p>
         <a class="pill" href="#donar">Donar <span class="arr">↗</span></a>
         <a class="pill light" href="#tienda">Comprar sticker o suéter <span class="arr">↗</span></a>
         <a class="pill light" href="https://www.instagram.com/gabilineth/" target="_blank" rel="noopener">@gabilineth <span class="arr">↗</span></a>
@@ -499,31 +513,31 @@ svg[class^="emb"] .kGold{fill:#B98A3E} svg[class^="emb"] .kGoldS{stroke:#B98A3E}
         <div class="q w"><svg class="st" fill="#1E3A6B"><use href="#star"/></svg><small>Donaciones</small><div><strong id="donSum">$0</strong><div class="qsub" id="donCount">0 aportes</div></div></div>
         <div class="q r"><small>Stickers vendidos</small><div><strong id="stkCount">0</strong><div class="qsub" id="stkSum">$0</div></div></div>
         <div class="q b"><small>Suéteres vendidos</small><div><strong id="shCount">0</strong><div class="qsub" id="shSum">$0</div></div></div>
-        <div class="q w"><svg class="st" fill="#D2452B"><use href="#star"/></svg><small>Primera entrega</small><strong>Dom 18<br>de octubre</strong></div>
+        <div class="q w"><svg class="st" fill="#D2452B"><use href="#star"/></svg><small>Todo va a</small><strong>TECHO<br>Panamá</strong></div>
       </div>
     </section>
 
-    <div class="sec-head"><h2>3 formas de ayudar</h2><p>Todo lo recaudado va a las familias del interior. En la tienda solo se descuenta el costo de producción.</p></div>
+    <div class="sec-head"><h2>3 formas de ayudar</h2><p>El 100% de las donaciones y el 80% de cada venta van a la Fundación TECHO Panamá.</p></div>
     <section class="ways">
       <div class="way">
         <div class="art give"><svg viewBox="0 0 100 100" style="height:46%;filter:none" fill="#F7F1E4"><use href="#star"/></svg></div>
         <h3>Donación libre <span>Lo que puedas</span></h3>
         <p>Por Yappy o transferencia. Aparece en el registro en uno o dos minutos.</p>
-        <div class="fine">100% a las familias</div>
+        <div class="fine"><b>100% para TECHO Panamá</b></div>
         <a class="pill" href="#donar">Donar <span class="arr">↗</span></a>
       </div>
       <div class="way">
         <div class="art" id="wayStk"></div>
         <h3>Sticker <span>$5</span></h3>
-        <p>Tres antojos bien nuestros: raspa'o, agua'e pipa y patacón con ketchup.</p>
-        <div class="fine">Costo de producción $0.10 · <b>$4.90 a las familias</b></div>
+        <p>Tres antojos bien nuestros: raspa'o, agua'e pipa y patacón con ketchup, ilustrados por Mariana Spiegel.</p>
+        <div class="fine"><b>80% para TECHO Panamá</b> · Arte de <a href="https://www.instagram.com/mari.spiegel/" target="_blank" rel="noopener">@mari.spiegel</a></div>
         <a class="pill" href="#tienda">Comprar <span class="arr">↗</span></a>
       </div>
       <div class="way">
         <div class="art" id="wayShirt"></div>
         <h3>Suéter <span>$20</span></h3>
         <p>Tu diseño favorito pequeño en el pecho, tipo bolsillo. Tallas XS a XXL.</p>
-        <div class="fine">Costo de producción $5 · <b>$15 a las familias</b></div>
+        <div class="fine"><b>80% para TECHO Panamá</b> · Arte de <a href="https://www.instagram.com/mari.spiegel/" target="_blank" rel="noopener">@mari.spiegel</a></div>
         <a class="pill" href="#tienda">Comprar <span class="arr">↗</span></a>
       </div>
     </section>
@@ -532,6 +546,18 @@ svg[class^="emb"] .kGold{fill:#B98A3E} svg[class^="emb"] .kGoldS{stroke:#B98A3E}
       <a class="pill light" href="#donar">Ver datos de pago <span class="arr">↗</span></a>
     </div>
 
+    <div class="sec-head"><h2>Artistas</h2><p>Cada diseño es de un artista panameño. Llévalo puesto y ayuda.</p></div>
+    <section class="artist">
+      <div class="artist-info">
+        <span class="badge">Colección 01</span>
+        <h3>Mariana Spiegel</h3>
+        <a class="artist-ig" href="https://www.instagram.com/mari.spiegel/" target="_blank" rel="noopener">@mari.spiegel ↗</a>
+        <p>Ilustró el raspa'o, el agua'e pipa y el patacón con ketchup de la primera colección de Todos somos Panamá.</p>
+        <a class="pill" href="#tienda">Ver sus diseños <span class="arr">↗</span></a>
+      </div>
+      <div class="artist-art" id="artistArt"></div>
+    </section>
+
     <div class="sec-head"><div><h2>Últimos aportes</h2><p style="margin-top:10px">Sin nombres. Solo hora, tipo, código y monto.</p></div><a class="pill light" href="#registro">Ver lista completa <span class="arr">↗</span></a></div>
     <div class="table mini-ledger"><div style="overflow-x:auto"><table>
       <thead><tr><th>Fecha y hora</th><th>Tipo</th><th>Código</th><th class="amt">Monto</th></tr></thead>
@@ -539,14 +565,14 @@ svg[class^="emb"] .kGold{fill:#B98A3E} svg[class^="emb"] .kGoldS{stroke:#B98A3E}
     </table></div><div id="lastEmpty" class="empty" hidden></div></div>
 
     <section class="soon" style="margin-top:96px" aria-labelledby="outTitle">
-      <div><span class="badge">● Próximamente</span><h2 id="outTitle">Registro de gastos</h2><p>Aquí vas a poder ver en qué se usó cada dólar: compras, comunidades atendidas y comprobantes.</p></div>
+      <div><span class="badge">● Próximamente</span><h2 id="outTitle">Entregas a TECHO Panamá</h2><p>Aquí vas a ver cada transferencia a la Fundación TECHO Panamá, con su fecha, monto y comprobante.</p></div>
       <div class="ghost" aria-hidden="true"><div></div><div></div><div></div><div></div></div>
     </section>
 
-    <section class="closing" aria-label="Entrega de donaciones">
+    <section class="closing" aria-label="Destino de los fondos">
       <svg class="bgstar" fill="#FFFFFF" aria-hidden="true"><use href="#star"/></svg>
-      <h2>Las donaciones serán entregadas el <em>domingo 18 de octubre</em>.</h2>
-      <div><p>Más información en las historias de</p><a class="pill" href="https://www.instagram.com/gabilineth/" target="_blank" rel="noopener">@gabilineth <span class="arr">↗</span></a></div>
+      <h2>Todo lo recaudado va a la <em>Fundación TECHO Panamá</em>.</h2>
+      <div><p>Sigue la campaña en las historias de</p><a class="pill" href="https://www.instagram.com/gabilineth/" target="_blank" rel="noopener">@gabilineth <span class="arr">↗</span></a></div>
     </section>
   </main>
 
@@ -581,7 +607,7 @@ svg[class^="emb"] .kGold{fill:#B98A3E} svg[class^="emb"] .kGoldS{stroke:#B98A3E}
     <section class="steps">
       <div class="step on"><span class="n">01</span><h3>Donas por Yappy o transferencia</h3><p>Con el correo obligatorio si es transferencia.</p></div>
       <div class="step"><span class="n">02</span><h3>Se registra solo, sin nombres</h3><p>El aviso del banco llega y en uno o dos minutos aparece en el registro con un código.</p></div>
-      <div class="step"><span class="n">03</span><h3>Entregamos el domingo 18 de octubre</h3><p>Todo lo recaudado llega a las familias del interior.</p></div>
+      <div class="step"><span class="n">03</span><h3>Lo enviamos a TECHO Panamá</h3><p>El 100% de las donaciones y el 80% de las ventas, con el comprobante publicado aquí.</p></div>
     </section>
     <div class="paystrip" style="margin-top:40px"><p>¿Prefieres llevarte algo a cambio?</p><a class="pill" href="#tienda">Ir a la tienda <span class="arr">↗</span></a></div>
   </main>
@@ -590,24 +616,24 @@ svg[class^="emb"] .kGold{fill:#B98A3E} svg[class^="emb"] .kGoldS{stroke:#B98A3E}
   <main class="view" data-view="tienda">
     <a class="back" href="#inicio">← Volver al inicio</a>
     <h1 class="page-title">Tienda solidaria</h1>
-    <p class="page-lead">Tres antojos que nos unen. Paga por Yappy o transferencia, llena el pedido con tu comprobante y retíralo en el punto que elijas.</p>
+    <p class="page-lead">Tres antojos que nos unen, ilustrados por la artista panameña Mariana Spiegel. El 80% de cada venta va a la Fundación TECHO Panamá.</p>
     <div class="price-strip">
-      <div><small>Sticker</small><strong>$5</strong> <small>Producción $0.10 · $4.90 a las familias</small></div>
-      <div><small>Suéter</small><strong>$20</strong> <small>Producción $5 · $15 a las familias</small></div>
+      <div><small>Sticker</small><strong>$5</strong> <small>80% para TECHO Panamá</small></div>
+      <div><small>Suéter</small><strong>$20</strong> <small>80% para TECHO Panamá</small></div>
       <div><small>Pago</small><strong>Yappy o transferencia</strong> <small>Adjunta el comprobante en el pedido</small></div>
     </div>
 
-    <div class="sec-head"><h2>Stickers</h2><p>Troquelados con borde blanco. Escoge tu antojo.</p></div>
+    <div class="sec-head"><h2>Stickers</h2><p>Ilustraciones de Mariana Spiegel (<a href="https://www.instagram.com/mari.spiegel/" target="_blank" rel="noopener">@mari.spiegel</a>). Troquelados con borde blanco.</p></div>
     <section class="stickers" id="stkGrid"></section>
 
-    <div class="sec-head"><h2>Suéter</h2><p>El diseño va pequeño en el pecho, tipo bolsillo.</p></div>
+    <div class="sec-head"><h2>Suéter</h2><p>El diseño de Mariana Spiegel va pequeño en el pecho, tipo bolsillo.</p></div>
     <section class="shirt-box">
       <div class="shirt-art"><div id="shirtArt" style="width:100%;display:grid;place-items:center"></div><div class="shirt-pick" id="shirtPick" role="group" aria-label="Diseño del suéter"></div></div>
       <div class="shirt-info">
         <h3>Todos somos Panamá</h3>
         <div class="price">$20</div>
         <p id="shirtName" style="color:var(--ink);font-weight:600"></p>
-        <p>Costo de producción $5. Los otros $15 van directo a las familias del interior.</p>
+        <p>El 80% de cada suéter va a la Fundación TECHO Panamá.</p>
         <div><small style="color:var(--muted);font-size:13px">Tallas</small><div class="sizes" id="sizeList" style="margin-top:6px"></div></div>
         <button type="button" class="pill" data-buy="sueter" style="align-self:flex-start">Comprar suéter <span class="arr">↗</span></button>
       </div>
@@ -679,7 +705,7 @@ svg[class^="emb"] .kGold{fill:#B98A3E} svg[class^="emb"] .kGoldS{stroke:#B98A3E}
         <div class="stepper"><button type="button" id="qMinus" aria-label="Menos">−</button><input id="fQty" name="cantidad" type="number" min="1" max="50" value="1" inputmode="numeric" aria-label="Cantidad"><button type="button" id="qPlus" aria-label="Más">+</button></div>
       </div>
 
-      <div class="sumbox"><div><small>Total a pagar</small><strong id="sumTotal">$5.00</strong></div><div style="text-align:right"><small>A las familias</small><b id="sumCausa">$4.90</b></div></div>
+      <div class="sumbox"><div><small>Total a pagar</small><strong id="sumTotal">$5.00</strong></div><div style="text-align:right"><small>Para TECHO Panamá</small><b id="sumCausa">$4.00</b></div></div>
 
       <div class="paybox">
         <b>1. Envía el pago</b> <span style="color:var(--muted)">por Yappy o transferencia</span>
@@ -888,9 +914,10 @@ const IMG={"raspao": {"stk": "data:image/webp;base64,UklGRqCCAABXRUJQVlA4WAoAAAA
 const API_URL = 'https://script.google.com/macros/s/AKfycbyKC_b1W5CyGxqD1_1KPSDzRatuSUQsW5VRh2sCANZ1Zr8CVsAZ4xauW8kFt28GQWav/exec';
 const CADA_SEGUNDOS = 30;
 const PRECIO = { sticker: 5, sueter: 20 };
-const COSTO  = { sticker: 0.10, sueter: 5 };
+const PARA_TECHO = 0.8;                                    // porcentaje de cada venta para TECHO Panamá
 const TALLAS = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
-const DISENOS = [ { k: 'raspao', n: "Raspa'o" }, { k: 'pipa', n: "Agua'e pipa" }, { k: 'patacon', n: 'Patacón con ketchup' } ];
+const ARTISTA = { n: 'Mariana Spiegel', ig: 'mari.spiegel' };
+const DISENOS = [ { k: 'raspao', n: "Raspa'o", a: ARTISTA }, { k: 'pipa', n: "Agua'e pipa", a: ARTISTA }, { k: 'patacon', n: 'Patacón con ketchup', a: ARTISTA } ];
 const PUNTOS = [                                             // ← editar con los puntos reales
   { n: 'Ciudad de Panamá', d: 'Dirección por confirmar' },
   { n: 'David, Chiriquí',  d: 'Dirección por confirmar' },
@@ -925,9 +952,10 @@ const PUNTOS = [                                             // ← editar con l
   let wk=0; const paintWay=()=>{const k=DISENOS[wk].k;$('wayStk').innerHTML=`<img src="${IMG[k].stk}" alt="Sticker ${DISENOS[wk].n}">`;$('wayShirt').innerHTML=zoomShirt(k,'way');};
   paintWay(); if(!reduce)setInterval(()=>{wk=(wk+1)%DISENOS.length;paintWay();},3500);
   // tienda
-  $('stkGrid').innerHTML=DISENOS.map(d=>`<div class="stk"><img src="${IMG[d.k].stk}" alt="Sticker ${esc(d.n)}"><div class="row2"><div><b>${esc(d.n)}</b><small>Sticker · $5</small></div><button type="button" class="btn-s" data-buy="sticker" data-design="${d.k}">Comprar</button></div></div>`).join('');
+  $('stkGrid').innerHTML=DISENOS.map(d=>`<div class="stk"><img src="${IMG[d.k].stk}" alt="Sticker ${esc(d.n)}"><div class="row2"><div><b>${esc(d.n)}</b><small>Por ${esc(d.a.n)} · $5</small></div><button type="button" class="btn-s" data-buy="sticker" data-design="${d.k}">Comprar</button></div></div>`).join('');
+  $('artistArt').innerHTML=DISENOS.map((d,i)=>`<img src="${IMG[d.k].stk}" alt="${esc(d.n)}, por ${esc(d.a.n)}" style="--r:${[-8,6,-3][i]}deg">`).join('');
   let shirtK='raspao';
-  const paintShirt=()=>{$('shirtArt').innerHTML=zoomShirt(shirtK,'shop');$('shirtName').textContent='Diseño: '+DISENOS.find(d=>d.k===shirtK).n;
+  const paintShirt=()=>{$('shirtArt').innerHTML=zoomShirt(shirtK,'shop');{const d=DISENOS.find(d=>d.k===shirtK);$('shirtName').textContent='Diseño: '+d.n+' · por '+d.a.n;}
     document.querySelectorAll('#shirtPick button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===shirtK));
     document.querySelector('[data-buy="sueter"]').dataset.design=shirtK;};
   $('shirtPick').innerHTML=DISENOS.map(d=>`<button type="button" data-k="${d.k}" aria-label="${esc(d.n)}"><img src="${IMG[d.k].art}" alt=""></button>`).join('');
@@ -969,8 +997,8 @@ const PUNTOS = [                                             // ← editar con l
     const sh=sales.filter(x=>x.product==='sueter').reduce((a,x)=>a+x.qty,0);
     const don=S.donations.filter(d=>!d.void&&!d.sale);
     const donSum=don.reduce((a,d)=>a+d.amount,0);
-    const stkSum=stk*PRECIO.sticker, shSum=sh*PRECIO.sueter, costo=stk*COSTO.sticker+sh*COSTO.sueter;
-    return {stk,sh,donCount:don.length,donSum,stkSum,shSum,costo,total:donSum+stkSum+shSum,causa:donSum+stkSum+shSum-costo};
+    const stkSum=stk*PRECIO.sticker, shSum=sh*PRECIO.sueter;
+    return {stk,sh,donCount:don.length,donSum,stkSum,shSum,total:donSum+stkSum+shSum,causa:donSum+(stkSum+shSum)*PARA_TECHO};
   }
   const kindOf=d=>d.sale?'<span class="kind sale">Venta</span>':'<span class="kind">Donación</span>';
   const rowHtml=d=>'<tr class="row'+(d.void?' void':'')+(seen&&!seen.has(d.id)&&!d.void?' fresh':'')+'"><td class="when">'+dt(d.at)+'</td><td>'+kindOf(d)+'</td><td class="code">'+esc(d.code)+(d.void?'<span class="void-note">Anulada: '+esc(d.voidReason)+'</span>':'')+'</td><td class="amt">'+fmt(d.amount)+'</td></tr>';
@@ -981,7 +1009,7 @@ const PUNTOS = [                                             // ← editar con l
     $('payRows').innerHTML=(p.yappyId||p.yappyName?`<div class="pr"><span>Yappy</span><b>${esc(p.yappyName||p.yappyId)}</b><button type="button" class="copy" data-copy="${esc(p.yappyId||p.yappyName)}">Copiar</button></div>`:`<div class="pr"><span>Yappy</span><b>Por confirmar</b></div>`)+
       `<div class="pr"><span>${esc(p.bank)} · ${esc(p.type)}</span><b>${esc(p.accFmt)}</b><button type="button" class="copy" data-copy="${esc(p.acc)}">Copiar</button></div><div class="pr"><span>Titular</span><b>${esc(p.holder)}</b></div>`;
     $('total').textContent=fmt(t.total);
-    $('subMoney').innerHTML=t.costo>0?`Costo de producción de la tienda <b>−${fmt(t.costo)}</b> · Para las familias <b>${fmt(t.causa)}</b>`:`Para las familias <b>${fmt(t.causa)}</b>`;
+    $('subMoney').innerHTML=`Para la Fundación TECHO Panamá <b>${fmt(t.causa)}</b> · 100% de las donaciones y 80% de las ventas`;
     $('donSum').textContent=fmt0(t.donSum); $('donCount').textContent=t.donCount+(t.donCount===1?' aporte':' aportes');
     $('stkCount').textContent=t.stk; $('stkSum').textContent=fmt0(t.stkSum);
     $('shCount').textContent=t.sh; $('shSum').textContent=fmt0(t.shSum);
@@ -1025,7 +1053,7 @@ const PUNTOS = [                                             // ← editar con l
     $('fsSize').hidden=k!=='sueter';
     form.querySelectorAll('#designPick img').forEach((im,i)=>{im.src=k==='sueter'?IMG[DISENOS[i].k].art:IMG[DISENOS[i].k].stk;});
     form.querySelectorAll('input[name="talla"]').forEach(i=>i.disabled=k!=='sueter');
-    const tot=qty*PRECIO[k], cau=qty*(PRECIO[k]-COSTO[k]);
+    const tot=qty*PRECIO[k], cau=tot*PARA_TECHO;
     $('sumTotal').textContent=fmt(tot); $('sumCausa').textContent=fmt(cau);
     const pu=$('fPoint').value;
     form.querySelectorAll('input[name="diseno"]').forEach(r=>{const tallas=k==='sueter'?TALLAS:['-'];const sinStock=pu&&tallas.every(t=>dispo(k,r.value,t,pu)===0);r.disabled=!!sinStock;r.parentElement.classList.toggle('off',!!sinStock);});
@@ -1035,7 +1063,7 @@ const PUNTOS = [                                             // ← editar con l
     if(k==='sueter'){const c=form.querySelector('input[name="talla"]:checked');if(c&&c.disabled){const f=[...form.querySelectorAll('input[name="talla"]')].find(r=>!r.disabled);if(f)f.checked=true;}}
     const tsel=form.querySelector('input[name="talla"]:checked');
     const dv=pu&&dsel?dispo(k,dsel.value,k==='sueter'?(tsel&&!tsel.disabled?tsel.value:''):'-',pu):null;
-    const dn=dsel; $('dname').textContent=(dn?'Diseño: '+dn.value+(k==='sueter'?' (pequeño en el pecho)':''):'')+(dv===null?'':dv===0?' · Agotado en '+pu:' · Quedan '+dv+' en '+pu);
+    const dn=dsel; $('dname').textContent=(dn?'Diseño: '+dn.value+' · por '+ARTISTA.n+(k==='sueter'?' (pequeño en el pecho)':''):'')+(dv===null?'':dv===0?' · Agotado en '+pu:' · Quedan '+dv+' en '+pu);
     if(dv!==null&&dv>0&&qty>dv){$('fQty').value=dv;}
   }
   form.addEventListener('change',upd);
